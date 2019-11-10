@@ -19,9 +19,9 @@ def other_page():
 def api_example():
 	#We use the request module to easily collect all the data input into the form
 	form_data = request.form
-	input_movie_name = form_data["movie"]
+	input_book_name = form_data["book"]
 
-	results = get_movies(input_movie_name)
+	results = get_book(input_book_name)
 
 	#The second argument of the render_template method lets us send data into our html form
 	#You can pass multiple things in - just separate them with commas
@@ -45,7 +45,7 @@ def get_movies(input_movie_name):
 	return json_data["Search"]
 
 
-def book_info (title_search)
+def book_info (input_book_name)
 	#This code will go and seach on the NYT server for a book, return some information about it
 	#It will then search for the same book from Google Books, to get an image of the cover
 	load_dotenv() #add the variables from the .env file to this file
@@ -55,7 +55,7 @@ def book_info (title_search)
 	api_key_google = os.getenv( "GOOGLE_API_KEY" ) 
 
 	#Do the NYT request
-    endpoint_nyt = "https://api.nytimes.com/svc/books/v3/reviews.json?title=" + title_search
+    endpoint_nyt = "https://api.nytimes.com/svc/books/v3/reviews.json?title=" + input_book_name
 	payload_nyt = {"api-key" :api_key_nyt} 
 	response_nyt = requests.get(endpoint_nyt, params=payload_nyt) 
 	print "\n",'NYT status code:', response_nyt.status_code, "\n" 
