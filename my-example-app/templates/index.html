@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Example Flask App</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!--Link CSS files here - I've linked custom & BootStrap CSS files-->
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/mdb.min.css')}}">
+	</head>
+	
+	<body>
+
+		<!--Don't forget about all the great Bootsrap stuff you used in beginners!-->
+		<div class="container text-center mt-4 mb-4">
+			<div class="col-lg-12 col-md-12 mb-12">
+				<!--This is how you can link images-->
+				<img class="img-responsive python-image mb-4" src="{{ url_for('static', filename='images/python.png')}}">
+				<h1>Example Flask App</h1>
+				<br>
+				<h4 class="card-title product-bold">This is an example Python Flask web app</h2>
+				<h6 class="card-text">
+					It shows you how to use Python, html, Flask and Jinja2 together<br>
+					It demos how to take user input from a form, and also a basic API call<br>
+					You can use this example web app as a base template for your own project<br>
+					Don't forget to use css and Bootstrap to make your websites look great too :-)
+				</h6>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row d-flex justify-content-center">
+				<div class="col-lg-5 col-md-5">
+					<!--Here is an example of how to get data from your user in a form-->
+					<!--The site redirects you to /name when they click submit (the 'action' part)-->
+					<!--The python code then calls the api and returns the data to the screen!-->
+					<div class="card hoverable">
+						<div class="card-body">
+							<h4 class="card-title product-bold">Movie search example</h4>
+							<h6 class="card-text mb-3">This is an example of how to get data from your user in a form and then use it to return info from an api!</h6>
+							<form method="post" action="/apiexample">
+								<div class="form-group">
+									<label for="name">Enter your name:</label>
+									<input type="name" name="name" id="name" required="required">
+								</div>
+								<div class="form-group">
+									<label for="movie">Enter your favourite movie:</label>
+									<input type="movie" name="movie" id="movie" required="required">
+								</div>
+								<button type="submit" id="submit-button" class="btn btn-primary">Submit</button>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-5 col-md-5">
+					<!--Here is an example of how to get data from your user in a form-->
+					<!--The site redirects you to /name when they click submit (the 'action' part)-->
+					<!--The python code then calls the api and returns the data to the screen!-->
+					<div class="card hoverable">
+						<div class="card-body">
+							<h4 class="card-title product-bold mb-3">Navigate to another page example</h4>
+							<h6 class="card-text mb-3">
+								This is an example of how to navigate to another html page in your Flask app.
+								Click the button below to navigate to another page on this site...
+							</h6>
+							<a class="btn btn-primary" href="/otherpage" role="button">Click!</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	</body>
+	
+	<!--Link JavaScript files here - I've linked BootStrap abd JQuery JS files-->
+	<script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+	<script src="{{url_for('static', filename='js/jquery-3.3.1.min.js')}}"></script>
+
+</html>
