@@ -44,4 +44,38 @@ def get_movies(input_movie_name):
 
 	return json_data["Search"]
 
+
+def book_info (iban)
+	#This code will go and seach on the NYT server for a book, return some information about it
+	#It will then search for the same book from Google Books, to get an image of the cover
+	load_dotenv() #add the variables from the .env file to this file
+
+	#Set up the API keys
+	api_key_nyt = os.getenv( "NYT_API_KEY" ) 
+	api_key_google = os.getenv( "GOOGLE_API_KEY" ) 
+
+	#Do the NYT request
+	endpoint_nyt = "https://api.nytimes.com/svc/books/v3/reviews.json?isbn=9781524763138" 
+	payload_nyt = {"api-key" :api_key_nyt} 
+	response_nyt = requests.get(endpoint_nyt, params=payload_nyt) 
+	print "\n",'NYT status code:', response_nyt.status_code, "\n" 
+	data_nyt = response_nyt.json()
+
+	#Save some data about the book
+	title = data_nyt["results"][0]["book_title"] #we've got a 0 in here to just return the first record
+	author = data_nyt["results"][0]["book_author"]
+	summary = data_nyt["results"][0]["summary"]
+	isbn = data_nyt["results"][0]["isbn13"][0]
+	print 'You should read {} by {}. Summary: {}'.format(title,author,summary)
+	print isbn
+
+	#Do the Google request
+	endpoint_google = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + isbn; #where the data is that we want to fetch
+	payload_google = {"api-key" :api_key_google} 
+	response_google = requests.get(endpoint_google, params=payload_google) 
+	print "\n" ,'Google status code: ',response_google.status_code, "\n" 
+	data_google = response_google.json()
+	thumbnail = data_google["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"] #Get the image of the book
+	print thumbnail
+
 app.run(debug=True)
