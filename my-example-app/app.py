@@ -45,7 +45,7 @@ def get_movies(input_movie_name):
 	return json_data["Search"]
 
 
-def book_info (iban)
+def book_info (title_search)
 	#This code will go and seach on the NYT server for a book, return some information about it
 	#It will then search for the same book from Google Books, to get an image of the cover
 	load_dotenv() #add the variables from the .env file to this file
@@ -55,7 +55,7 @@ def book_info (iban)
 	api_key_google = os.getenv( "GOOGLE_API_KEY" ) 
 
 	#Do the NYT request
-	endpoint_nyt = "https://api.nytimes.com/svc/books/v3/reviews.json?isbn=9781524763138" 
+    endpoint_nyt = "https://api.nytimes.com/svc/books/v3/reviews.json?title=" + title_search
 	payload_nyt = {"api-key" :api_key_nyt} 
 	response_nyt = requests.get(endpoint_nyt, params=payload_nyt) 
 	print "\n",'NYT status code:', response_nyt.status_code, "\n" 
@@ -77,5 +77,6 @@ def book_info (iban)
 	data_google = response_google.json()
 	thumbnail = data_google["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"] #Get the image of the book
 	print thumbnail
+	return thumbnail
 
 app.run(debug=True)
