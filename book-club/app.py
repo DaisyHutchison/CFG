@@ -75,6 +75,6 @@ def get_book (input_book_name):
 	thumbnail = data_google["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"] #Get the image of the book
 	print thumbnail
 	print data_google
-	return json_data["Search"]
+	return title
 
 app.run(debug=True)
