@@ -19,6 +19,7 @@ def other_page():
 def api_example():
 	#We use the request module to easily collect all the data input into the form
 	form_data = request.form
+	print form_data
 	input_book_name = form_data["book"]
 
 	results = get_book(input_book_name)
@@ -74,8 +75,9 @@ def get_book (input_book_name):
 	data_google = response_google.json()
 	thumbnail = data_google["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"] #Get the image of the book
 	print thumbnail
-	#print data_google
-	return title
+	print data_google
+	print author
+	return data_google["Author"]
 
 
 @app.route("/<name>")

@@ -21,7 +21,7 @@
 				<!--With Jinja2, you can also loop through a list, like we are here-->
 				<h2 class="mb-4">Hey {{user_data.name}}, here are your book results:</h2>
 					{% for book in bookresults %}
-						<p>{{ book.Title }}</p>
+						<p>{{ bookresults.Author }}</p>
 						<br>
 					{% endfor %}
 				<a class="btn btn-primary" href="/" role="button">Go back home</a>
