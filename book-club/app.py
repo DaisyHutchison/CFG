@@ -114,6 +114,6 @@ def sign_up():
         print form_data["genre6"]
 
     print form_data["frequency"]
-    return "Thank you for submitting!"
+    return render_template("submit.html")
 
 app.run(debug=True)

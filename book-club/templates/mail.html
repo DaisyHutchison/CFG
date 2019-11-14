@@ -1,24 +1,35 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
     <head>
         <title>Join our Mailing List!</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!--Link CSS files here - I've linked custom & BootStrap CSS files-->
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/mdb.min.css')}}">
     </head>
+
     <body>
-        <p> Sign up below to join our mailing list! </p>
-        <div id="contact-form">
+    <div class="container">
+        <br>
+        <h1> Sign up below to join our mailing list! </h1>
+        <div class="container mt-4 mb-4">
+                <div class="col-lg-12 col-md-12 mb-12">
             <form method="post" action="/signup"> <!-- use post to keep it private, as supposed to get which will put it in the url-->
                 <label for="email">Email address:</label>
                 <input type="email" id="email" name="email" required="required"> <br> <br>
 
-                <p> What genre's are you interested in? (Check all that apply)</p>
+                <h5> What genre's are you interested in? (Check all that apply)</h5>
                     <input type="checkbox" name="genre1" value="Romance"> Romance <br>
                     <input type="checkbox" name="genre2" value="Science Fiction"> Science Fiction <br>
                     <input type="checkbox" name="genre3" value="Fantasy"> Fantasy <br>
                     <input type="checkbox" name="genre4" value="Thriller"> Thriller <br>
                     <input type="checkbox" name="genre5" value="Mystery"> Mystery <br>
                     <input type="checkbox" name="genre6" value="Non-Fiction"> Non-Fiction <br>
+                    <br>
+                    <br>
                 
-                <p> How often would you like to hear from us?</p>
+                <h5> How often would you like to hear from us?</h5>
                 <input type="radio" name="frequency" value="Weekly" checked> Weekly <br>
                 <input type="radio" name="frequency" value="Monthly"> Montly <br> 
                 <input type="radio" name="frequency" value="Quarterly"> Quarterly <br> <br>
@@ -26,6 +37,13 @@
   
                 <input type="submit" value="Submit" id="submit-button"> 
             </form>
-        </div>  
+        </div> 
+        </div>
+    </div>  
     </body>
+
+    	<!--Link JavaScript files here - I've linked BootStrap abd JQuery JS files-->
+	<script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/jquery-3.3.1.min.js')}}"></script>
+    
 </html>
