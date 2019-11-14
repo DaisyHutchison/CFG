@@ -77,4 +77,41 @@ def get_book (input_book_name):
 	print data_google
 	return title
 
+
+@app.route("/<name>")
+def hello_someone(name):
+    return render_template("mail.html")
+
+@app.route("/signup", methods=["POST"])
+def sign_up():
+    form_data = request.form
+    print form_data["email"]
+    
+    name1 = request.form.get('genre1')
+    if name1:
+        print form_data["genre1"]
+
+    name2 = request.form.get('genre2')
+    if name2:
+        print form_data["genre2"]
+
+    name3 = request.form.get('genre3')
+    if name3:
+        print form_data["genre3"]
+
+    name4 = request.form.get('genre4')
+    if name4:
+        print form_data["genre4"]
+
+    name5 = request.form.get('genre5')
+    if name5:
+        print form_data["genre5"]
+
+    name6 = request.form.get('genre6')
+    if name6:
+        print form_data["genre6"]
+
+    print form_data["frequency"]
+    return "Thank you for submitting!"
+
 app.run(debug=True)
