@@ -1,9 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
     <head>
         <title>Join our Mailing List!</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!--Link CSS files here - I've linked custom & BootStrap CSS files-->
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/mdb.min.css')}}">
     </head>
+
     <body>
+    <div class="container">
         <p> Sign up below to join our mailing list! </p>
         <div id="contact-form">
             <form method="post" action="/signup"> <!-- use post to keep it private, as supposed to get which will put it in the url-->
@@ -26,6 +33,12 @@
   
                 <input type="submit" value="Submit" id="submit-button"> 
             </form>
-        </div>  
+        </div> 
+    </div>  
     </body>
+
+    	<!--Link JavaScript files here - I've linked BootStrap abd JQuery JS files-->
+	<script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/jquery-3.3.1.min.js')}}"></script>
+    
 </html>
