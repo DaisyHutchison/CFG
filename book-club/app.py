@@ -53,7 +53,7 @@ def get_book (input_book_name):
 	api_key_nyt = os.getenv( "NYT_API_KEY" ) 
 	api_key_google = os.getenv( "GOOGLE_API_KEY" ) 
 	#Do the NYT request
-	endpoint_nyt = "https://api.nytimes.com/svc/books/v3/reviews.json?title=" + input_book_name;
+	endpoint_nyt = "https://api.nytimes.com/svc/books/v3/reviews.json?title=" + input_book_name
 	payload_nyt = {"api-key" :api_key_nyt} 
 	response_nyt = requests.get(endpoint_nyt, params=payload_nyt) 
 	print "\n",'NYT status code:', response_nyt.status_code, "\n" 
@@ -67,14 +67,14 @@ def get_book (input_book_name):
 	print isbn
 
 	#Do the Google request
-	endpoint_google = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + isbn; #where the data is that we want to fetch
+	endpoint_google = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + isbn #where the data is that we want to fetch
 	payload_google = {"api-key" :api_key_google} 
 	response_google = requests.get(endpoint_google, params=payload_google) 
 	print "\n" ,'Google status code: ',response_google.status_code, "\n" 
 	data_google = response_google.json()
 	thumbnail = data_google["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"] #Get the image of the book
 	print thumbnail
-	print data_google
+	#print data_google
 	return title
 
 app.run(debug=True)
