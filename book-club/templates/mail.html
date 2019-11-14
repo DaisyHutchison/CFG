@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Join our Mailing List!</title>
+    </head>
+    <body>
+        <p> Sign up below to join our mailing list! </p>
+        <div id="contact-form">
+            <form method="post" action="/signup"> <!-- use post to keep it private, as supposed to get which will put it in the url-->
+                <label for="email">Email address:</label>
+                <input type="email" id="email" name="email" required="required"> <br> <br>
+
+                <p> What genre's are you interested in? (Check all that apply)</p>
+                    <input type="checkbox" name="genre1" value="Romance"> Romance <br>
+                    <input type="checkbox" name="genre2" value="Science Fiction"> Science Fiction <br>
+                    <input type="checkbox" name="genre3" value="Fantasy"> Fantasy <br>
+                    <input type="checkbox" name="genre4" value="Thriller"> Thriller <br>
+                    <input type="checkbox" name="genre5" value="Mystery"> Mystery <br>
+                    <input type="checkbox" name="genre6" value="Non-Fiction"> Non-Fiction <br>
+                
+                <p> How often would you like to hear from us?</p>
+                <input type="radio" name="frequency" value="Weekly" checked> Weekly <br>
+                <input type="radio" name="frequency" value="Monthly"> Montly <br> 
+                <input type="radio" name="frequency" value="Quarterly"> Quarterly <br> <br>
+               
+  
+                <input type="submit" value="Submit" id="submit-button"> 
+            </form>
+        </div>  
+    </body>
+</html>
