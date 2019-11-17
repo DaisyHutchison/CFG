@@ -80,15 +80,15 @@ def get_book (input_book_name):
 	return data_google["Author"]
 
 
-@app.route("/<name>")
-def hello_someone(name):
+@app.route("/mail")
+def mail():
     return render_template("mail.html")
 
 @app.route("/signup", methods=["POST"])
 def sign_up():
     form_data = request.form
     print form_data["email"]
-    
+
     name1 = request.form.get('genre1')
     if name1:
         print form_data["genre1"]
