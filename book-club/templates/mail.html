@@ -6,13 +6,16 @@
 		<!--Link CSS files here - I've linked custom & BootStrap CSS files-->
 		<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
 		<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
-		<link rel="stylesheet" href="{{ url_for('static', filename='css/mdb.min.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/mdb.min.css')}}">
     </head>
 
     <body>
+    <div class="headtext">
     <div class="container">
         <br>
         <h1> Sign up below to join our mailing list! </h1>
+    </div>
+
         <div class="container mt-4 mb-4">
                 <div class="col-lg-12 col-md-12 mb-12">
             <form method="post" action="/signup"> <!-- use post to keep it private, as supposed to get which will put it in the url-->
