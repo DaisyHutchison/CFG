@@ -59,13 +59,14 @@ def get_book (input_book_name):
 	response_nyt = requests.get(endpoint_nyt, params=payload_nyt) 
 	print "\n",'NYT status code:', response_nyt.status_code, "\n" 
 	data_nyt = response_nyt.json()
+	print "\n",'DATA NYT:', data_nyt, "\n"
 
 	#Save some data about the book
 	title = data_nyt["results"][0]["book_title"] #we've got a 0 in here to just return the first record
 	author = data_nyt["results"][0]["book_author"]
 	summary = data_nyt["results"][0]["summary"]
 	isbn = data_nyt["results"][0]["isbn13"][0]
-	print isbn
+	print "\n",'ISBN:',isbn, "\n"
 
 	#Do the Google request
 	endpoint_google = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + isbn #where the data is that we want to fetch
@@ -74,10 +75,10 @@ def get_book (input_book_name):
 	print "\n" ,'Google status code: ',response_google.status_code, "\n" 
 	data_google = response_google.json()
 	thumbnail = data_google["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"] #Get the image of the book
-	print thumbnail
-	print data_google
-	print author
-	return data_google["Author"]
+	print "\n",'THUMBNAIL:',thumbnail, "\n"
+	print "\n",'DATA GOOGLE:',data_google, "\n"
+	print "\n",'Author:',author,"\n"
+	return data_google
 
 
 @app.route("/mail")
