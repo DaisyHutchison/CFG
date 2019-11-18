@@ -58,9 +58,11 @@
 	<title>Example Flask App</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!--Link CSS files here - I've linked custom & BootStrap CSS files-->
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/mdb.min.css')}}">
+	<link href="https://fonts.googleapis.com/css?family=BioRhyme&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
+
 </head>
 
 <body>
@@ -91,7 +93,7 @@
 							<h4 class="card-title product-bold">Movie search example</h4>
 							<h6 class="card-text mb-3">This is an example of how to get data from your user in a form
 								and then use it to return info from an api!</h6>
-							<form method="post" action="/apiexample">
+							<form method="post" action="/results">
 								<div class="form-group">
 									<label for="name">Enter your name:</label>
 									<input type="name" name="name" id="name" required="required">
@@ -100,7 +102,7 @@
 									<label for="book">Search for a book:</label>
 									<input type="book" name="book" id="book" required="required">
 								</div>
-								<button type="submit" id="submit-button" class="btn btn-primary">Submit</button>
+								<button type="submit" id="submit-button"  class="btn btn-indigo" >Submit</button>
 							</form>
 						</div>
 					</div>
@@ -116,7 +118,7 @@
 								This is an example of how to navigate to another html page in your Flask app.
 								Click the button below to navigate to another page on this site...
 							</h6>
-							<a class="btn btn-primary" href="/otherpage" role="button">Click!</a>
+							<a class="btn btn-indigo" href="/otherpage" role="button">Click!</a>
 						</div>
 					</div>
 				</div>

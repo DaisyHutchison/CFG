@@ -15,70 +15,41 @@ def home_page():
 def other_page():
 	return render_template("other_page.html")
 
-@app.route("/apiexample", methods=["POST"])
+@app.route("/results", methods=["POST"])
 def api_example():
-	#We use the request module to easily collect all the data input into the form
-	form_data = request.form
-	print form_data
-	input_book_name = form_data["book"]
+    form_data = request.form
+    input_book_name = form_data["book"]
+    data_nyt = get_nyt_data(input_book_name)
+    title = data_nyt["results"][0]["book_title"]
+    author = data_nyt["results"][0]["book_author"]
+    summary = data_nyt["results"][0]["summary"]
+    isbn = data_nyt["results"][0]["isbn13"][0]
+    thumbnail = get_thumbnail(isbn)
+    return render_template("results.html", thumbnail=thumbnail, user_data=form_data, author=author, title=title, summary=summary)
 
-	results = get_book(input_book_name)
+def get_nyt_data(input_book_name):
+    load_dotenv()
+    api_key_nyt = os.getenv("NYT_API_KEY") 
+    endpoint_nyt = "https://api.nytimes.com/svc/books/v3/reviews.json?title=" + input_book_name
+    payload_nyt = {"api-key" :api_key_nyt} 
+    response_nyt = requests.get(endpoint_nyt, params=payload_nyt) 
+    print "\n",'NYT status code:', response_nyt.status_code, "\n" 
+    data_nyt = response_nyt.json()
+    print "\n",'DATA NYT:', data_nyt, "\n"
+    return data_nyt
 
-	#The second argument of the render_template method lets us send data into our html form
-	#You can pass multiple things in - just separate them with commas
-	#You can also pass in data in lists, and then pull out items from the list within the.html file itself!
-	return render_template("api_example.html", bookresults=results, user_data=form_data)
-
-# def get_movies(input_movie_name):
-# 	load_dotenv();
-# 	api_key = os.getenv("OMDB_API_KEY")
-	
-# 	endpoint = 'http://www.omdbapi.com'
-# 	payload = {"apikey": api_key, "s":input_movie_name}
-# 	response = requests.get(endpoint, params=payload)
-
-# 	json_data = response.json()
-
-# 	#You'll see any printed data in your terminal - helpful to understand what's happening, and to debug
-# 	print "JSON response from the API call:"
-# 	print json_data
-
-# 	return json_data["Search"]
-
-
-def get_book (input_book_name):
-	#This code will go and seach on the NYT server for a book, return some information about it
-	#It will then search for the same book from Google Books, to get an image of the cover
-	load_dotenv() #add the variables from the .env file to this file
-	#Set up the API keys
-	api_key_nyt = os.getenv( "NYT_API_KEY" ) 
-	api_key_google = os.getenv( "GOOGLE_API_KEY" ) 
-	#Do the NYT request
-	endpoint_nyt = "https://api.nytimes.com/svc/books/v3/reviews.json?title=" + input_book_name
-	payload_nyt = {"api-key" :api_key_nyt} 
-	response_nyt = requests.get(endpoint_nyt, params=payload_nyt) 
-	print "\n",'NYT status code:', response_nyt.status_code, "\n" 
-	data_nyt = response_nyt.json()
-	print "\n",'DATA NYT:', data_nyt, "\n"
-
-	#Save some data about the book
-	title = data_nyt["results"][0]["book_title"] #we've got a 0 in here to just return the first record
-	author = data_nyt["results"][0]["book_author"]
-	summary = data_nyt["results"][0]["summary"]
-	isbn = data_nyt["results"][0]["isbn13"][0]
-	print "\n",'ISBN:',isbn, "\n"
-
-	#Do the Google request
-	endpoint_google = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + isbn #where the data is that we want to fetch
-	payload_google = {"api-key" :api_key_google} 
-	response_google = requests.get(endpoint_google, params=payload_google) 
-	print "\n" ,'Google status code: ',response_google.status_code, "\n" 
-	data_google = response_google.json()
-	thumbnail = data_google["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"] #Get the image of the book
-	print "\n",'THUMBNAIL:',thumbnail, "\n"
-	print "\n",'DATA GOOGLE:',data_google, "\n"
-	print "\n",'Author:',author,"\n"
-	return data_google
+def get_thumbnail(isbn):
+    load_dotenv()
+    api_key_google = os.getenv("GOOGLE_API_KEY")
+    endpoint_google = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + isbn
+    payload_google = {"api-key" :api_key_google} 
+    response_google = requests.get(endpoint_google, params=payload_google) 
+    print "\n" ,'Google status code: ',response_google.status_code, "\n" 
+    data_google = response_google.json()
+    thumbnail = data_google["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"]
+    print "\n",'THUMBNAIL:',thumbnail, "\n"
+    print "\n",'DATA GOOGLE:',data_google, "\n"
+    return thumbnail
 
 
 @app.route("/mail")

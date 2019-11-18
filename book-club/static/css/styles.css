@@ -17,6 +17,14 @@ div.mailform {
   font-style: oblique;
 }
 
-div.background {
-  background: url(https://collegeinfogeek.com/wp-content/uploads/2018/11/Essential-Books.jpg);
+body {
+  background-color: burlywood;
+  background-image: url(static/images/books-header.jpg);
+  font-family: 'BioRhyme', serif;
+}
+
+p{
+  font-family: 'BioRhyme', serif;
+  background-color: steelblue;
+  opacity: 0.5; 
 }
