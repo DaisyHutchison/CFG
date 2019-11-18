@@ -5,11 +5,19 @@ h1 {
 body {
   background-color: burlywood;
   background-image: url(static/images/books-header.jpg);
-  font-family: 'BioRhyme', serif;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  line-height: 1.5px;
 }
 
 p{
-  font-family: 'BioRhyme', serif;
+  font-family: 'Raleway', sans-serif;
+  background-color: steelblue;
+  opacity: 0.5; 
+}
+
+card-text{
+  font-family: 'Raleway', sans-serif;
   background-color: steelblue;
   opacity: 0.5; 
 }
