@@ -1,8 +1,22 @@
-h1 {
+div.mailform {
+  position: relative;
+  margin-right: 10%;
+  margin-left: 10%;
+  color: slategray;
+  border-style: double;
+  border-width: thick;
+  background-color: linen;
+} 
+
+
+.headcontainer {
   text-align: center;
+  color: black;
+  text-transform: capitalize;
+  font-variant: small-caps;
+  font-style: oblique;
 }
 
-body {
-  background-color: steelblue;
-  opacity: 0.5; 
+div.background {
+  background: url(https://collegeinfogeek.com/wp-content/uploads/2018/11/Essential-Books.jpg);
 }
