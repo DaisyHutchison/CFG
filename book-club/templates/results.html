@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark unique-color">
+
+		<!-- Navbar brand -->
+		<a class="navbar-brand" href="#">Book Club</a>
+	
+		<!-- Collapse button -->
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+			aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+	
+		<!-- Collapsible content -->
+		<div class="collapse navbar-collapse" id="basicExampleNav">
+	
+			<!-- Links -->
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+					<a class="nav-link" href="/">Home
+						<span class="sr-only">(current)</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/mail">Newsletter</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">About us</a>
+				</li>
+	
+				<!-- Dropdown 
+				<li class="nav-item dropdown">
+				  <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false">Dropdown</a>
+				  <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+					<a class="dropdown-item" href="#">Action</a>
+					<a class="dropdown-item" href="#">Another action</a>
+					<a class="dropdown-item" href="#">Something else here</a>
+				  </div>
+				</li>-->
+	
+			</ul>
+			<!-- Links -->
+	
+			<form class="form-inline">
+				<div class="md-form my-0">
+					<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+				</div>
+			</form>
+		</div>
+		<!-- Collapsible content -->
+	
+	</nav>
+	<!--/.Navbar-->
+
+	<head>
+		<title>Example Flask App</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!--Link CSS files here - I've linked custom & BootStrap CSS files-->
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/mdb.min.css')}}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
+	</head>
+	
+	<body>
+
+		<!--Don't forget about all the great Bootsrap stuff you used in beginners!-->
+		<div class="container text-center mt-4 mb-4">
+			<div class="col-lg-12 col-md-12 mb-12">
+				<!--Here you can display data that you passed into render_template from python-->
+				<!--You can pass in json data and get the bits you want like 'movie.Title'-->
+				<!--This is displayed via Jinja2 syntax - look at the documentation online-->
+				<!--With Jinja2, you can also loop through a list, like we are here-->
+				<h2 class="mb-4">Hey {{user_data.name}}, here are your book results:</h2>
+				<h3>{{title}}</h3><br>
+					<p>{{author}}<br><br>
+					{{summary}}
+				</p><br>
+				<img class="img-fluid" src={{thumbnail}}"><br><br>
+
+				<a class="btn btn-indigo" href="/" role="button">Go back home</a>
+			</div>
+		</div>
+	
+	</body>
+	
+	<!--Link JavaScript files here - I've linked BootStrap abd JQuery JS files-->
+	<script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+	<script src="{{url_for('static', filename='js/jquery-3.3.1.min.js')}}"></script>
+
+</html>

@@ -6,4 +6,9 @@ h1 {
 body {
   background-color: burlywood;
   background-image: url(static/images/books-header.jpg);
+  font-family: 'BioRhyme', serif;
+}
+
+p{
+  font-family: 'BioRhyme', serif;
 }
