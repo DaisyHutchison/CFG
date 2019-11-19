@@ -1,11 +1,11 @@
-/*div.mailform {
+div.mailform {
   position: relative;
   margin-right: 10%;
   margin-left: 10%;
-  color: slategray;
+  color: #45526e;
   border-style: double;
   border-width: thick;
-  background-color: linen;
+  background-color:#d0d6e2 ;
 } 
 
 
@@ -19,21 +19,26 @@
 
  
 
-p{
-  font-family: 'Raleway', sans-serif;
-  background-color: steelblue;
-  opacity: 0.5; 
+div.results{
+  font-family: 'Raleway', sans-serif; 
+  background-color:#d0d6e2;
+  color: #45526e;
+  padding:70px;
 }
 
-.maintitle{
+h3.results{
   font-family: 'Josefin Slab', serif;
-  background-color: steelblue;
-  opacity: 0.5; 
-  font-size:10px;
-  
+  font-size: 40px;  
+  font-weight: bold;
+  color: #45526e;
 }
 
-  background-image: url(static/images/books-header.jpg);*/
+h1.maintitle{
+  font-family: 'Josefin Slab', serif;
+  font-size: 70px;  
+  font-weight: bold;
+  color: #45526e;
+}
 
 body {
   background-color: #ffebee;
