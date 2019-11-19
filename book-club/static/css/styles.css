@@ -5,7 +5,8 @@ div.mailform {
   color: #45526e;
   border-style: double;
   border-width: thick;
-  background-color:#d0d6e2 ;
+  background-color:#d0d6e2;
+  font-family: 'Raleway', sans-serif;
 } 
 
 
@@ -15,6 +16,7 @@ div.mailform {
   text-transform: capitalize;
   font-variant: small-caps;
   font-style: oblique;
+  font-family: 'Raleway', sans-serif;
 }
 
  
