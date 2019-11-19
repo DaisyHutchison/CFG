@@ -1,4 +1,4 @@
-div.mailform {
+/*div.mailform {
   position: relative;
   margin-right: 10%;
   margin-left: 10%;
@@ -17,13 +17,13 @@ div.mailform {
   font-style: oblique;
 }
 
-body {
+ body {
   background-color: burlywood;
   background-image: url(static/images/books-header.jpg);
   font-family: 'Raleway', sans-serif;
   font-size: 20px;
   line-height: 1.5px;
-}
+} 
 
 p{
   font-family: 'Raleway', sans-serif;
@@ -31,9 +31,9 @@ p{
   opacity: 0.5; 
 }
 
-h1.main-title{
-  font-family: 'Raleway', sans-serif;
+.maintitle{
+  font-family: 'Josefin Slab', serif;
   background-color: steelblue;
   opacity: 0.5; 
   font-size:10px;
-}
+}*/
