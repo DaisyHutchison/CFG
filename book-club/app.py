@@ -56,9 +56,13 @@ def get_thumbnail(isbn):
 def mail():
     return render_template("mail.html")
 
+
+
 @app.route("/signup", methods=["POST"])
 def sign_up():
     form_data = request.form
+    email = form_data["email"]
+    send_email(email)
     print form_data["email"]
 
     name1 = request.form.get('genre1')
@@ -86,6 +90,20 @@ def sign_up():
         print form_data["genre6"]
 
     print form_data["frequency"]
-    return render_template("submit.html")
+    return render_template("submit.html", email=email)
+
+
+def send_email(user_email):
+    endpoint = "https://api.mailgun.net/v3/sandbox852093c7507144d8b5decbf5653807fb.mailgun.org/messages"
+    api_key = os.getenv("MAILGUN_API_KEY")
+    return requests.post(
+        endpoint,
+        auth=("api", api_key),
+        data={"from": "Book Club <mailgun@sandbox852093c7507144d8b5decbf5653807fb.mailgun.org>",
+              "to": [user_email],
+              "subject": "Welcome to Book Club!",
+              "text": "Thank you for joining our newsletter! Watch out for some awesome book recommendations coming to your inbox soon!"})
+    
+
 
 app.run(debug=True)

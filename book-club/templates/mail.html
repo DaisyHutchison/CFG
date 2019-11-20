@@ -81,26 +81,41 @@
         <div class="container mt-4 mb-4">
                 <div class="col-lg-12 col-md-12 mb-12">
             <form method="post" action="/signup"> <!-- use post to keep it private, as supposed to get which will put it in the url-->
-                <label for="fname">Name:</label>
-                <input type="fname" id="fname" name="fname" required="required"> <br> <br>
-                <label for="email">Email address:</label>
-                <input type="email" id="email" name="email" required="required"> <br> <br>
-
+                <div class="form-group">
+                    <label for="fname">Name:</label>
+                    <input type="fname" id="fname" name="fname" required="required"> 
+                </div>
+                <br> 
+                <br>
+                <div class="form-group">
+                    <label for="email">Email address:</label>
+                    <input type="email" id="email" name="email" required="required"> 
+                </div>        
+                <br> 
+                <br>
                 <h5> What genre's are you interested in? (Check all that apply)</h5>
-                    <input type="checkbox" name="genre1" value="Romance"> Romance <br>
-                    <input type="checkbox" name="genre2" value="Science Fiction"> Science Fiction <br>
-                    <input type="checkbox" name="genre3" value="Fantasy"> Fantasy <br>
-                    <input type="checkbox" name="genre4" value="Thriller"> Thriller <br>
-                    <input type="checkbox" name="genre5" value="Mystery"> Mystery <br>
-                    <input type="checkbox" name="genre6" value="Non-Fiction"> Non-Fiction <br>
+                <div class="form-group">
+                    <input type="checkbox" name="genre1" value="Romance"> Romance 
+                    <br>
+                    <input type="checkbox" name="genre2" value="Science Fiction"> Science Fiction 
+                    <br>
+                    <input type="checkbox" name="genre3" value="Fantasy"> Fantasy 
+                    <br>
+                    <input type="checkbox" name="genre4" value="Thriller"> Thriller 
+                    <br>
+                    <input type="checkbox" name="genre5" value="Mystery"> Mystery 
+                    <br>
+                    <input type="checkbox" name="genre6" value="Non-Fiction"> Non-Fiction 
                     <br>
                     <br>
-                
+                    <br>
+                </div>
                 <h5> How often would you like to hear from us?</h5>
-                <input type="radio" name="frequency" value="Weekly" checked> Weekly <br>
-                <input type="radio" name="frequency" value="Monthly"> Montly <br> 
-                <input type="radio" name="frequency" value="Quarterly"> Quarterly <br> <br>
-               
+                <div class="form-group">
+                    <input type="radio" name="frequency" value="Weekly" checked> Weekly <br>
+                    <input type="radio" name="frequency" value="Monthly"> Montly <br> 
+                    <input type="radio" name="frequency" value="Quarterly"> Quarterly <br> <br>
+                </div>
               
                 <input type="submit" id="submit-button"  class="btn btn-mdb-color"> 
                 <a class="btn btn-mdb-color" href="/" role="button">Back to Home</a>
